@@ -1,0 +1,102 @@
+@function rem($px) {
+  $result: math.div($px, 16) + rem;
+  @return $result;
+}
+
+@function em($px, $current: 16) {
+  $result: math.div($px, $current) + em;
+  @return $result;
+}
+
+@mixin stick-title {
+  font-family: 'IQOS-Bold';
+  font-size: rem(18);
+  line-height: math.div(25, 18);
+  color: $color-white;
+
+  @media (max-width: $xsm) {
+    font-size: rem(14);
+    line-height: math.div(18, 14);
+  }
+}
+
+@mixin description {
+  font-size: 1.7vmin;
+  line-height: 1.4;
+
+  @media (max-width: $sm) {
+    font-size: 3.5vmin;
+    line-height: 1.5;
+  }
+}
+
+@mixin border-padding {
+  padding: 0 2vmin;
+}
+
+@mixin maxwidth {
+  max-width: rem(1015);
+}
+
+@mixin land-title {
+  font-family: 'IQOS-Bold';
+  font-size: 5vmin;
+  line-height: 1.3;
+
+  @media (max-width: $sm) {
+    font-size: 8vmin;
+  }
+}
+
+@mixin transitionHover($bg) {
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: 500;
+  text-decoration: none;
+  -webkit-transition: ease-out .3s;
+  -o-transition: ease-out .3s;
+  transition: ease-out .3s;
+  padding: 3px 0;
+  position: relative;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: none;
+    opacity: 1;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: $bg;
+    -webkit-transition: ease-out .3s;
+    -o-transition: ease-out .3s;
+    transition: ease-out .3s;
+    opacity: 0;
+  }
+
+  &:hover:before {
+    content: '';
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@mixin appear {
+  animation: fade-appear .6s ease-in-out;
+
+  @keyframes fade-appear {
+    0% {
+      opacity: 0;
+    }
+
+
+    100% {
+      opacity: 1;
+    }
+  }
+}

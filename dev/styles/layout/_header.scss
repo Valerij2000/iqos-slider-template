@@ -1,0 +1,29 @@
+.header {
+  box-shadow: 0px 4px 5px rgba(215, 215, 215, 0.2);
+}
+
+.header__navbar {
+  min-height: rem(56);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: rem(20) rem(20);
+
+  @media (max-width: $sm) {
+    padding: rem(10) rem(10);
+  }
+}
+
+.header__logo {
+  width: rem(100);
+  height: rem(30);
+}
+
+.header__link {
+  font-size: rem(16);
+  line-height: 1.2;
+
+  @media (max-width: $sm) {
+    font-size: rem(12);
+  }
+}
